@@ -1,0 +1,43 @@
+{% extends 'base_urls.html' %}
+{% load static %}
+
+{% block 'title' %}Troca de senha{% endblock %}
+{% block 'body' %}
+
+    {% if messages %}
+        {% for i in messages %}
+            <div class="alert {{i.tags}}" role="alert">
+                {{i}}
+            </div>
+        {%endfor%}
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md">
+                <br>
+                <br>
+                <br>
+                <h1 style="text-align:center"><span class="">Troque sua senha</span><h1>
+                <form method="POST" action="{% url 'valida_troca' %}">{% csrf_token %}
+                    <div class="mb-3">
+                        <input required name="user" type="text" class="form-control" placeholder="Seu username...">
+                    </div>
+                    <div class="mb-3">
+                        <input required name="senha_atual" type="password" class="form-control" placeholder="Senha atual...">
+                    </div>
+                    <div class="mb-3">
+                        <input required name="nova_senha" type="password" class="form-control" placeholder="Nova senha...">
+                    </div>
+                    <input type="submit" class="btn btn-success center"></input>
+                </form> 
+            </div>
+            
+            <div class="col-md-3">
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

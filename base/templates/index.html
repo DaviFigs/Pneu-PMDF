@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'title' %}Página pricipal{% endblock %}
+{% block 'info'%}
+  {% if perms.admin.add_logentry%}
+    SuperUser
+  {% elif perms.admin.can_add_mod%}
+    Registrador de pedidos
+  {% else%}
+    Visualizador
+  {% endif%}
+
+{% endblock%}
+{% block 'body' %}
+{% block 'ul'%}
+<nav class="navbar-expand-lg bg-body-tertiary ">
+    <ul class="nav justify-content-center">
+      {% if perms.admin.add_logentry%}
+        <li class="nav-item">
+          <a class="nav-link cores-head" aria-current="page" href="/autenticacao/cadastro/">CADASTRAR USUÁRIO</a>
+        </li>
+      {% endif%}
+        {% if perms.admin.can_add_mod%}
+          <li class="nav-item">
+              <a class="nav-link cores-head" href="{% url 'registro_motos'%}">FAZER REGISTRO <b>'MOTOS'</b></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link cores-head" href="{% url 'registro_carros'%}">FAZER REGISTRO <b>'CARROS'</b></a>  
+          </li>
+        {% endif %}        
+        <li class="nav-item">
+          <a class="nav-link cores-head" href="{% url 'visualizar_motos'%}">VER RESGISTROS <b>'MOTOS'</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cores-head" href="{% url 'visualizar_carros'%}">VER RESGISTROS <b>'CARROS'</b></a>
+        </li>
+        <li class="nav-item">
+        </li>
+      </ul>
+    </nav>
+{%endblock%}
+  {% if messages %}
+    {% for i in messages %}
+      <div class="alert {{i.tags}}" role="alert">
+        {{i}}
+      </div>
+    {%endfor%}
+  {% endif %}
+
+    <br>
+    <div class="container text-start">
+        <div  class="row">
+            <div class="col-md margem">
+                <h1>Sobre o software</h1>
+                <br>
+                <p class="fonte1">Este software foi desenvolvido para armazenar e registrar de forma fácil e organizada, registros dos pneus de viaturas da PMDF retirados dos armazéns,os pedidos são feitos a diversos batalhões da Polícia militar espalhados pelo Distrito Federal.<br>As funcionalidades aparecem na barra superior do software, de acordo com as permissões do usuário que esta logado.</p>
+                <a class="fonte1" href="https://www.pmdf.df.gov.br/" style="color:#000; text-align:center">SITE OFICIAL DA PMDF</a>
+            </div>
+            <div class="col-md margem">
+                <h1>Registros</h1>
+                <br>
+                <p class="fonte1">Os registros de pedidos feitos aos batalhões são efetuados por apenas um tipo de usuário com cargo de registrador, os demais usuários podem apenas visualizar os pedidos já efetuados.<br>Para registrar, o usuário registrador deve selecionar todos os dados correspondentes à aquele pedido, como o batalhão.<br>Pedidos são organizados por data.</p>
+                    <ul class="fonte1">
+                        <li>Código do pedido/PIM, &#40;Proveniente de outro departamento&#41; </li>
+                        <li>Viatura a qual foram fornecidos pneus</li>
+                        <li>Quantidade de pneus</li>
+                        <li>Data do pedido &#40;automatica&#41;</li>
+                    </ul><p class="fonte1">No registro, apenas com a informação de para qual viatura o pedido está sendo feito, temos todas as outras informações necessárias. Ex:Tipo de pneu que ela usa, nome do carro, prefixo, tipo de carro, etc.
+                </p>
+            </div>
+            <div class="col-md margem">
+                <h1>Visualização</h1>
+                <br>
+                <p class="fonte1">Todos os pedidos antes registrados estão disponíveis para serem visualizados em forma de tabelas, todos os usuários logados no sistema podem visualiza-los apenas clicando nos botões disponíveis na barra de navegação acima.</p>         
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>{% block 'title' %} {% endblock %}</title> <!--Titulo de cada página-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href={% static 'css/base/base.css' %}>
+    <link rel="icon" href="{% static 'img/base/icondf.png' %}" type="image/png">
+    {% block 'head' %} {% endblock %} <!--arquivos estáticos especificos de cada html-->
+   
+    <meta charset="utf-8">
+  </head>
+  <header class=""> </header>
+  
+  <body>
+    <nav class="cor-fundo navbar ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://www.pmdf.df.gov.br/">
+          <img  class="zerop"width="40" height="40"src="{% static 'img/base/logodf.png' %}">
+          <spam style="color:white;">Polícia Militar do Distrito Federal</spam>
+        </a>
+      </div>
+    </nav>
+    <nav class="navbar-expand-lg bg-body-tertiary ">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link cores-head" aria-current="page" href="/base/main/">VOLTAR</a>
+        </li>
+      </ul>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    {% block 'body' %} 
+    {%endblock%}
+  </body>
+
+  <fotter class=""></fotter>
+</html>

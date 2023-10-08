@@ -1,0 +1,50 @@
+{% extends 'base_urls.html' %}
+{% load static %}
+
+{% block 'title' %}Cadastro{% endblock %}
+
+{% block 'body' %}
+
+    {% if messages %}
+        {% for i in messages %}
+            <div class="alert {{i.tags}}" role="alert">
+                {{i}}
+            </div>
+        {%endfor%}
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md">
+                <br>
+                <br>
+                <br>
+                <h1 style="text-align:center"><span class="">Cadastrar um usuário</span><h1>
+                <form method="POST" action="{% url 'valida_cadastro' %}">{% csrf_token %}
+                    <div class="mb-3">
+                        <input required name="usuario" type="text" class="form-control" placeholder="Nome do usuário...">
+                    </div>
+                    <div class="mb-3">
+                        <input required name="senha" type="password" class="form-control" placeholder="Senha...">
+                    </div>
+                    <div class="mb-3">
+                        <input required name="conf_senha" type="password" class="form-control" placeholder="Confirme a senha..-">
+                    </div>
+                    <select required name="permissao"class="form-select" >
+                        <option value="" disabled selected hidden>Cargo</option>
+                        <option value="1">Cadastrador de Pedidos</option>
+                        <option value="2">Visualizador Padrão</option>
+                    </select>
+                    <input type="submit" class="btn btn-success center"></input>
+                </form>
+                
+            </div>
+            
+            <div class="col-md-3">
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

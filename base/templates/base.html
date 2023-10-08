@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>{% block 'title' %} {% endblock %}</title> <!--Titulo de cada página-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href={% static 'css/base/base.css' %}>
+    <link rel="icon" href="{% static 'img/base/icondf.png' %}" type="image/png">
+    {% block 'head' %} {% endblock %} <!--arquivos estáticos especificos de cada html-->
+   
+    <meta charset="utf-8">
+  </head>
+  <body>
+    
+    <nav class="cor-fundo navbar ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://www.pmdf.df.gov.br/">
+          <img class="zerop"width="40" height="40"src="{% static 'img/base/logodf.png' %}">
+          <spam style="color:white;">Polícia Militar do Distrito Federal <spam class="space"><b>User:</b>{% block 'info'%} {% endblock%}</spam></spam>
+        </a>
+        <div class="inline">
+          {% if perms.admin.add_logentry%}
+            <a class="space" href="{% url 'trocar_senha'%}"><button class="btn 
+            btn-light">ÁREA ADMINISTRATIVA</button></a>  
+          {% endif %}
+          <a class="space" href="{% url 'trocar_senha'%}"><button class="btn btn-light">TROCAR SENHA</button></a>
+          <a class="space" href="{% url 'logout'%}"><button class="btn btn-danger end">SAIR</button>
+          </a>
+        </div>
+        
+      </div>
+    </nav>
+    <nav class="navbar-expand-lg bg-body-tertiary ">
+      
+
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    {% block 'body' %} 
+    {%endblock%}
+  </body>
+</html>

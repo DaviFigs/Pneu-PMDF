@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>{% block 'title' %} {% endblock %}</title> <!--Titulo de cada página-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href={% static 'css/base/base.css' %}>
+    <link rel="icon" href="{% static 'img/base/icondf.png' %}" type="image/png">
+    {% block 'head' %} {% endblock %} <!--arquivos estáticos especificos de cada html-->
+   
+    <meta charset="utf-8">
+  </head>
+  <header class=""> </header>
+  
+  <body>
+    <nav class="cor-fundo navbar ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://www.pmdf.df.gov.br/">
+          <img  class="zerop"width="40" height="40"src="{% static 'img/base/logodf.png' %}">
+          <span style="color:white;">Polícia Militar do Distrito Federal </span>
+        </a>
+      </div>
+    </nav>
+    <nav class="sub-barra">
+        <div class="nav justify-content-center">
+            <h5 style="padding:3px">Faça login para cadastrar ou ver os registros de pedidos de pneus.</h5>
+        </div>
+      </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    {% block 'body' %} 
+    {%endblock%}
+  </body>
+
+</html>

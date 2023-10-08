@@ -1,0 +1,55 @@
+{% extends 'base_urls.html' %}
+{% load static %}
+
+{% block 'title' %}Tabela Carros{% endblock %}
+{% block 'body' %}
+  {% if messages %}
+    {% for i in messages %}
+        <div class="alert {{i.tags}}" role="alert">
+            {{i}}
+        </div>
+    {%endfor%}
+  {% endif %}
+    <br> 
+    <h1 class="texto_centro"> TABELA DE REGISTROS CARROS</h1>
+    <br>
+    <table class="table table-bordered ">
+        <thead>
+            <tr>
+              <th class="texto_centro"scope="col" colspan="7">VIATURA</th>
+              <th class="texto_centro"scope="col" colspan="3">PEDIDO</th>
+            </tr>
+          </thead>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">PREFÍXO</th>
+            <th scope="col">CARRO</th>
+            <th scope="col">ODÔMETRO</th>
+            <th scope="col">BATALHÃO</th>
+            <th scope="col">TIPO</th>
+            <th scope="col">PNEU</th>
+            <th scope="col">PIM</th>
+            <th scope="col">QUANTIDADE</th>
+            <th scope="col">DATA</th>
+          </tr>
+        </thead>
+        <tbody>
+        {%for i in lista_pedidos_carros%}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.viatura}}</td>
+            <td>{{i.viatura.nome_carro}}</td>
+            <td>{{i.viatura.odometro}} km</td>
+            <td>{{i.viatura.batalhao_origem}}</td>
+            <td>{{i.viatura.tipo_viatura}}</td>
+            <td>{{i.viatura.pneu}}</td> 
+            <td>{{i.pim}}</td>
+            <td>{{i.quantidade}}</td>
+            <td>{{i.data|date:"d/m/Y"}}</td>
+          </tr>
+        {% endfor %}
+          
+        </tbody>
+      </table>
+{% endblock %}

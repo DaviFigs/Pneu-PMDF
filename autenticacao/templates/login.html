@@ -1,0 +1,41 @@
+{% extends 'base_home.html' %}
+{% load static %}
+
+{% block 'title' %}Login{% endblock %}
+{% block 'body' %}
+    {% if messages %}
+        {% for i in messages %}
+            <div class="alert {{i.tags}}" role="alert">
+                {{i}}
+            </div>
+        {%endfor%}
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+
+            <div class="col-md">
+                <br>
+                <br>
+                <br>
+                <br>
+                <h1 style="text-align:center"><span class="">Login</span><h1>
+                <form method="POST" action="{% url 'valida_login' %}">{% csrf_token %}
+                    <div class="mb-3">
+                        <input required name="usuario" type="text" class="form-control" placeholder="Usuário...">
+                    </div>
+                    <div class="mb-3">
+                        <input required name="senha" type="password" class="form-control" placeholder="Senha...">
+                    </div>
+                    <input type="submit" class="btn btn-success center"></input>
+                </form>
+                
+            </div>
+            
+            <div class="col-md-3">
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

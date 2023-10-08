@@ -1,0 +1,49 @@
+{% extends 'base_urls.html' %}
+{% load static %}
+
+{% block 'title' %}Registro Motos{% endblock %}
+{% block 'body' %}
+
+{% if messages %}
+    {% for i in messages %}
+        <div class="alert {{i.tags}}" role="alert">
+            {{i}}
+        </div>
+    {%endfor%}
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md">
+            <br>
+            <br>
+            <br>
+            <h1 style="text-align:center"><span class="">Registre um pedido - Motos</span><h1>
+            <form method="POST" action="{% url 'valida_motos' %}">{% csrf_token %}
+                <div class="mb-3">
+                    <select required name="viatura"class="form-select" >
+                        <option value="" disabled selected hidden>Viatura...</option>
+                        {% for i in lista_motos %}
+                            <option value="{{i.id}}">{{i.prefixo}} - {{i.nome_moto}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input required name="pim" type="text" class="form-control" placeholder="Pim...">
+                </div>
+                <div class="mb-3">
+                    <input required name="quantidade" type="text" class="form-control" placeholder="Quantidade...">
+                </div>
+                <input type="submit" class="btn btn-success center"></input>
+            </form>
+        </div>
+        
+        <div class="col-md-3">
+        </div>
+    </div>
+
+</div>
+{% endblock %}

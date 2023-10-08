@@ -1,0 +1,30 @@
+*{
+    scroll-behavior: smooth;}
+body{
+    background-color: rgb(219, 218, 218);}
+.cor{
+    color: #000060;}
+.cor-fundo{
+    background-color: #000060;}
+.cores-head{
+    color: black;}
+.sub-barra{
+    height: 33px;
+    background-color: whitesmoke;}
+.inline{
+    display: flex;}
+.fonte{
+    font-size: 12px;}
+.fonte1{
+    font-size: 22px;}
+.borda
+{
+    border: solid #000 1px;}
+.texto_centro{
+    text-align: center;}
+.margem
+{
+    margin: 10px;}
+.space
+{
+    margin-left: 10px;}
