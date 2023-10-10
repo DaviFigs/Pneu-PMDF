@@ -1,2 +1,3 @@
-# Pneu-PFMD
-Projeto feito para  a polícia federa do DF, para o controle de dados de retirada de pneus
+# Pneu-PMDF
+Projeto feito para  a polícia militar do Distrito Federal
+para o controle de retirada de pneus para viaturas
