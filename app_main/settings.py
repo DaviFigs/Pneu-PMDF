@@ -1,3 +1,8 @@
+'''superuser{
+            user = paulo
+            senha = davi2006
+}
+ '''
 import os
 from pathlib import Path
 from django.contrib.messages import constants
@@ -30,7 +35,6 @@ INSTALLED_APPS = [
     'visualizacao',
     'base'
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -40,7 +44,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 ROOT_URLCONF = 'app_main.urls'
 
 TEMPLATES = [
@@ -60,9 +63,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app_main.wsgi.application'
-
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -96,8 +96,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'America/Sao_Paulo'
@@ -111,7 +109,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
