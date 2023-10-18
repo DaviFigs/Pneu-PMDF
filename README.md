@@ -8,3 +8,6 @@ Níveis de usuário são defínidos para garantir a segunrança do sistema, e ga
 A maioria dos atributos das tabelas são adicionadas por um superusuário com acesso a 
 informações privilegiadas.
 
+Pedidos são feitos por pessoas fora do sistema, e cadastrados por funcionários com acesso ao 
+programa.
+-By: Davi de Oliveira Figueiredo 2023
